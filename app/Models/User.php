@@ -20,7 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'access_token'
+        'access_token',
+        'google2fa_secret',
+        'role_id',
+        'is_active'
     ];
 
     /**
@@ -55,5 +58,19 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    /**
+     * Interact with the user's first name.
+     *
+     * @param  string  $value
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function google2faSecret(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) =>  decrypt($value),
+            set: fn ($value) =>  encrypt($value),
+        );
     }
 }

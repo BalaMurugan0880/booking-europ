@@ -14,7 +14,7 @@
               <img src="{{ url('admin/images/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-              <a href="#" class="d-block">{{ Auth::user()->email }}</a>
+              <a href="#" class="d-block">{{ Auth::user()->name }}</a>
           </div>
       </div>
 
@@ -34,13 +34,13 @@
                       'route' => 'status.index',
                       'icon' => 'far fa-circle text-warning',
                       'title' => 'Status',
-                      'roles' => ['admin'],
+                      'roles' => ['admin', 'customer'],
                   ],
                   [
                       'route' => 'vehicle.index',
                       'icon' => 'far fa-circle text-danger',
                       'title' => 'Vehicle',
-                      'roles' => ['admin'],
+                      'roles' => ['admin', 'customer'],
                   ],
                   [
                       'route' => 'users.index',

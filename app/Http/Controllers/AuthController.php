@@ -24,17 +24,29 @@ class AuthController extends Controller
 
 public function login(Request $request)
 {
-
-    $credentials = $request->only('email', 'password');
+    $credentials = $request->only('email', 'password', 'verification_code');
 
     if (Auth::attempt($credentials)) {
-        return redirect()->route('appointments.index');
+        $user = Auth::user();
+        $google2fa = app(Google2FA::class);
+
+        // Verify the verification code
+        if ($google2fa->verifyKey($user->google2fa_secret, $credentials['verification_code'])) {
+            // Verification successful
+            return redirect()->route('appointments.index');
+        } else {
+            // Invalid verification code
+            $errorMessage = 'Invalid verification code.';
+        }
     } else {
+        // Invalid email or password
         $errorMessage = 'Invalid email or password.';
-        session()->flash('error', $errorMessage);
-        return redirect()->back();
     }
+
+    session()->flash('error', $errorMessage);
+    return redirect()->back();
 }
+
 
 public function logout(Request $request) {
     Auth::logout();
