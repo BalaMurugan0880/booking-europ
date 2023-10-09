@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\Role;
+use PragmaRX\Google2FAQRCode\Google2FA;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -33,6 +34,11 @@ class UsersTableSeeder extends Seeder
         $adminProfile->dob = '25/05/1998';
         $adminProfile->save();
 
+        // Generate and store a 2FA secret for the Admin user
+        // $google2fa = new Google2FA();
+        // $adminUser->google2fa_secret = $google2fa->generateSecretKey();
+        // $adminUser->save();
+
         // Create Customer User
         $customerRole = Role::where('slug', 'customer')->first();
 
@@ -51,5 +57,9 @@ class UsersTableSeeder extends Seeder
         $customerProfile->gender = 'male';
         $customerProfile->dob = '25/08/1996';
         $customerProfile->save();
+
+         // Generate and store a 2FA secret for the Customer user
+        //  $customerUser->google2fa_secret = $google2fa->generateSecretKey();
+        //  $customerUser->save();
     }
 }

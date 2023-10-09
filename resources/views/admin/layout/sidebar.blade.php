@@ -34,13 +34,13 @@
                       'route' => 'status.index',
                       'icon' => 'far fa-circle text-warning',
                       'title' => 'Status',
-                      'roles' => ['admin', 'customer'],
+                      'roles' => ['admin'],
                   ],
                   [
                       'route' => 'vehicle.index',
                       'icon' => 'far fa-circle text-danger',
                       'title' => 'Vehicle',
-                      'roles' => ['admin', 'customer'],
+                      'roles' => ['admin'],
                   ],
                   [
                       'route' => 'users.index',

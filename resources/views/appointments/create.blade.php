@@ -52,7 +52,7 @@
                                     <div class="input-group-prepend">
                                       <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
-                                    <input type="text" name="req_contact" class="form-control" value="{{ auth()->user()->profile->phone_number ?? '' }}" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
+                                    <input type="text" name="req_contact" autocomplete="off" class="form-control" value="{{ auth()->user()->profile->phone_number ?? '' }}" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
                                   </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                         </div>
-                                        <input type="text" name="customer_contact" class="form-control" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
+                                        <input type="text" name="customer_contact" autocomplete="off" class="form-control" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
                                     </div>
                                 </div>
                             </div>

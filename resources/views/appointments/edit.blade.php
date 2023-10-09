@@ -51,7 +51,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Requester Contact Number</label>
-                                    <input type="text" name="req_contact" value="{{ $appointment->req_contact }}" class="form-control" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
+                                    <input type="text" name="req_contact" autocomplete="off" value="{{ $appointment->req_contact }}" class="form-control" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Customer Phone Number</label>
-                                    <input type="text" name="customer_contact" value="{{ $appointment->customer_contact }}" class="form-control" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
+                                    <input type="text" name="customer_contact" autocomplete="off" value="{{ $appointment->customer_contact }}" class="form-control" data-inputmask='"mask": "(60) 99-99999999"' data-mask>
                                 </div>
                             </div>
                             <div class="col-sm-4">

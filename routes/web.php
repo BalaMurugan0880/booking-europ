@@ -31,7 +31,7 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::post('/status/{id}', [StatusController::class, 'update'])->name('status.update');
 });
 
-Route::group(['middleware' => 'role:admin,customer'], function () {
+Route::group(['middleware' => 'role:customer'], function () {
     Route::resource('appointments', AppointmentController::class);
     Route::resource('status', StatusController::class);
     Route::resource('vehicle', VehicleController::class);
